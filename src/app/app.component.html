@@ -1,23 +1,17 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <span>Welcome</span>
+<div class="container-fluid g-0">
+
+  <app-header></app-header>
+  <main>
+
+    <app-side-nav>
+    </app-side-nav>
+    <div class="display-area p-3">
+      <!-- <p>Main Container</p> -->
+      <router-outlet></router-outlet>
+
+    </div>
+    <app-right-nav></app-right-nav>
+  </main>
+  
+  <app-footer></app-footer>
 </div>
-
-<div class="content" role="main">
-
-  <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
-    <span>{{ title }} app is running!</span>
-  </div>
-
-
-  <div class="card-container">
-test
-  </div>
-
-  <!-- Footer -->
-  <footer>
-      Love Angular
-  </footer>
-</div>
-<router-outlet></router-outlet>
