@@ -12,6 +12,7 @@ import { RightNavComponent } from './right-nav/right-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     FooterComponent,
     RightNavComponent,
     LoginComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
