@@ -9,7 +9,8 @@ import { SharedServiceService } from './shared-service.service';
 export class AppComponent {
   title = 'mini-project';
   userData: any;
-  constructor( private _apiService: SharedServiceService){}
+  isLoggedIn: boolean | undefined;
+  constructor( public _apiService: SharedServiceService){}
   ngOnInit(){
     // this._apiService.getUserData().subscribe( res=>{
     //   this.userData = res;
@@ -17,5 +18,6 @@ export class AppComponent {
     // }, error=>{
     //   console.log(error);
     // })
+    this.isLoggedIn = this._apiService.isLoggedIn;
   }
 }

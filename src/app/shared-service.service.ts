@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SharedServiceService {
-
+  public isLoggedIn: boolean = false;
   constructor( private _http: HttpClient) { }
   
   getUserData(){
