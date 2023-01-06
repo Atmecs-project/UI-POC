@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 menuStatus:boolean=false;
 rmenuStatus:boolean=false;
 
-  constructor(){  }
+  constructor(public _apiService: SharedServiceService){  }
   ngOnInit(): void {    
   }
 
@@ -24,5 +25,9 @@ rmenuStatus:boolean=false;
   {
     this.rmenuStatus=!this.rmenuStatus;
     this.rsideNavToggled.emit(this.rmenuStatus);
+  }
+  logout(){
+    localStorage.setItem('logged','false');
+    this._apiService.isLoggedIn = localStorage.getItem('logged') == 'true' ? true : false;
   }
 }

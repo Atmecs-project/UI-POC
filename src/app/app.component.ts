@@ -21,6 +21,7 @@ export class AppComponent {
     // }, error=>{
     //   console.log(error);
     // })
-    this.isLoggedIn = this._apiService.isLoggedIn;
+    // this.isLoggedIn = localStorage.getItem('logged') == 'true' ? true : false;// this._apiService.isLoggedIn;
+    this._apiService.isLoggedIn = localStorage.getItem('logged') == 'true' ? true : false;
   }
 }
