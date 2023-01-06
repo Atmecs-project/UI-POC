@@ -12,7 +12,15 @@ export class AppComponent {
   rsideNavStatus: boolean=false;
 
   userData: any;
-  constructor( private _apiService: SharedServiceService){}
-  ngOnInit(){}
-
+  isLoggedIn: boolean | undefined;
+  constructor( public _apiService: SharedServiceService){}
+  ngOnInit(){
+    // this._apiService.getUserData().subscribe( res=>{
+    //   this.userData = res;
+    //   console.log(this.userData);
+    // }, error=>{
+    //   console.log(error);
+    // })
+    this.isLoggedIn = this._apiService.isLoggedIn;
+  }
 }
