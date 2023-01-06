@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.isTrue =  true;
     this.sharedService.isLoggedIn = true;
-    if(this.loginForm.value.username == "admin") {
+    if(this.loginForm.value.username.toLowerCase() == "admin") {
       console.log('Admin');
       this.router.navigate(['/admin']);
       
