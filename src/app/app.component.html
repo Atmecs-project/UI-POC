@@ -1,21 +1,30 @@
+
 <div class="container-fluid g-0">
   <div *ngIf="!_apiService.isLoggedIn"> 
     <app-login></app-login>
   </div>
   <div *ngIf="_apiService.isLoggedIn">
-    <app-header></app-header>
+    <!-- <app-header></app-header>
     <main>
   
       <app-side-nav>
       </app-side-nav>
-      <div class="display-area p-3">
-        <!-- <p>Main Container</p> -->
+      <div class="display-area p-3">        
         <router-outlet></router-outlet>
   
       </div>
       <app-right-nav></app-right-nav>
     </main>
     
+    <app-footer></app-footer> -->
+    <app-header (sideNavToggled)="sideNavStatus = $event;"></app-header>
+  <main>    
+    <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}"></app-side-nav>    
+    <div class="display-area p-3" [ngClass]="{'display-area-shrink':sideNavStatus}">
+      <app-right-nav [rsideNavStatus]="rsideNavStatus" [ngClass]="{'app-right-nav-open':rsideNavStatus}">      
+      </app-right-nav>
+    </div>
     <app-footer></app-footer>
+  </main>  
   </div>
 </div>

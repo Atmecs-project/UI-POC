@@ -7,7 +7,10 @@ import { SharedServiceService } from './shared-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mini-project';
+  title = 'ATMECS Project';
+  sideNavStatus: boolean=false;
+  rsideNavStatus: boolean=false;
+
   userData: any;
   isLoggedIn: boolean | undefined;
   constructor( public _apiService: SharedServiceService){}
