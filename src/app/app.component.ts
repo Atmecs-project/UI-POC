@@ -7,15 +7,12 @@ import { SharedServiceService } from './shared-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mini-project';
+  title = 'ATMECS Project';
+  sideNavStatus: boolean=false;
+  rsideNavStatus: boolean=false;
+
   userData: any;
   constructor( private _apiService: SharedServiceService){}
-  ngOnInit(){
-    // this._apiService.getUserData().subscribe( res=>{
-    //   this.userData = res;
-    //   console.log(this.userData);
-    // }, error=>{
-    //   console.log(error);
-    // })
-  }
+  ngOnInit(){}
+
 }

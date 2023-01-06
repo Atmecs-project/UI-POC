@@ -1,5 +1,9 @@
-p {
-    text-decoration: none;
+footer{
+    padding: 10px 10px;
+    width: 100%;    
+    background-color: #212529;
     color: white;
-    
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
