@@ -11,15 +11,29 @@ export class HeaderComponent implements OnInit {
  rsideNavToggled=new EventEmitter<boolean>();
 menuStatus:boolean=false;
 rmenuStatus:boolean=false;
+showLeftMenu:any;
 
   constructor(public _apiService: SharedServiceService){  }
-  ngOnInit(): void {    
+  ngOnInit(): void {   
+    
+    if(!localStorage.getItem('showLeftMenu')){
+      this._apiService.showLeftMenu = false;
+      this.showLeftMenu = this._apiService.showLeftMenu;
+    }
+    else{
+      this._apiService.showLeftMenu = localStorage.getItem('showLeftMenu') == 'true' ? true : false;
+      this.showLeftMenu = this._apiService.showLeftMenu;
+    }
+
+    this.sideNavToggled.emit(this._apiService.showLeftMenu);
+
   }
 
   sideNavToggle()
   {
     this.menuStatus=!this.menuStatus;
-    this.sideNavToggled.emit(this.menuStatus);
+    // this.sideNavToggled.emit(this.menuStatus);
+    this.sideNavToggled.emit(this._apiService.showLeftMenu);
   }
   rsideNavToggle()
   {

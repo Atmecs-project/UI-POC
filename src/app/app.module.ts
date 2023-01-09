@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

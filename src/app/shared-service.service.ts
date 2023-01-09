@@ -6,6 +6,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SharedServiceService {
   public isLoggedIn: boolean = false;
+  public layoutTheme: any = '#000000';
+  public footerLayout: any;
+  public rightLayout: boolean = false;
+  public leftLayout: boolean = false;
+  public showLeftMenu : boolean = false;
   constructor( private _http: HttpClient) { }
   
   getUserData(){
