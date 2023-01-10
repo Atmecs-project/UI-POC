@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
   rightLayout: boolean = false;
   leftLayout: boolean = false;
   showLeftMenu: boolean = false;
+  showLogo : boolean = true;
   constructor( public sharedService : SharedServiceService) { }
 
   ngOnInit(): void {
@@ -61,6 +62,15 @@ export class AdminComponent implements OnInit {
       this.showLeftMenu = this.sharedService.showLeftMenu;
     }
 
+    if(!localStorage.getItem('showLogo')){
+      this.sharedService.showLogo = false;
+      this.showLogo = this.sharedService.showLogo;
+    }
+    else{
+      this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
+      this.showLogo = this.sharedService.showLogo;
+    }
+
   }
 
   apply(){
@@ -83,6 +93,9 @@ export class AdminComponent implements OnInit {
 
     localStorage.setItem('showLeftMenu', this.showLeftMenu ? 'true':'false');
     this.sharedService.showLeftMenu = localStorage.getItem('showLeftMenu') == 'true' ? true : false;
+
+    localStorage.setItem('showLogo', this.showLogo ? 'true':'false');
+    this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
 
     window.location.reload();
 

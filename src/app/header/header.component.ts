@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
 menuStatus:boolean=false;
 rmenuStatus:boolean=false;
 showLeftMenu:any;
-
+showLogo:any;
+img: any;
   constructor(public _apiService: SharedServiceService){  }
   ngOnInit(): void {   
     
@@ -25,7 +26,18 @@ showLeftMenu:any;
       this.showLeftMenu = this._apiService.showLeftMenu;
     }
 
+    if(!localStorage.getItem('showLogo')){
+      this._apiService.showLogo = false;
+      this.showLogo = this._apiService.showLogo;
+    }
+    else{
+      this._apiService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
+      this.showLogo = this._apiService.showLogo;
+    }
+
     this.sideNavToggled.emit(this._apiService.showLeftMenu);
+    this.img = '../atmecs.png';
+    
 
   }
 

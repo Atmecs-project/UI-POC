@@ -3,7 +3,8 @@
     <div class="side-nav-button p-2 me-3 text-light" (click)="sideNavToggle()">
         <i class="fa-solid fa-bars"></i>
     </div>
-    <a class="navbar-brand px-4" href="#">ATMECS Project</a>
+    <a class="navbar-brand px-4" href="#" *ngIf="_apiService.showLogo">ATMECS Project</a>
+    <!-- <img alt="ATMECS Project" src="../assets/images/atmecs.png" style="width: 200px; height: 20px;" *ngIf="_apiService.showLogo" /> -->
     <div class="navbar-collapse">
         <ul class="navbar-nav me-auto">
             <li class="nav-item dropdown">

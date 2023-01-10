@@ -1,16 +1,25 @@
 <form>
-    <label for="favcolor">Select your favorite theme:</label>
-    <input type="color" id="favcolor" name="favcolor" [(ngModel)]="favcolor"> : {{favcolor}}<br><br>
+  <label for="favcolor">Select your favorite theme:</label>
+  <input type="color" id="favcolor" name="favcolor" [(ngModel)]="favcolor"> : {{favcolor}}<br><br>
 
+  <div class="container p-3 my-3 text-white" [ngStyle]="{'background-color': sharedService.layoutTheme}">
     <label for="favlayout">Select your layout:</label><br><br>
-    Left Panel : <input type="checkbox" id="leftLayout" value="leftLayout" [(ngModel)]="leftLayout" name="leftLayout"><br>
-    Right Panel : <input type="checkbox" id="rightLayout" value="rightLayout" [(ngModel)]="rightLayout" name="rightLayout"><br>
-    Show Left Menu : <input type="checkbox" id="showLeftMenu" value="showLeftMenu" [(ngModel)]="showLeftMenu" name="showLeftMenu"><br>
+    <span>Left Panel : <input type="checkbox" id="leftLayout" value="leftLayout" [(ngModel)]="leftLayout"
+        name="leftLayout"></span>
+    <span> Right Panel : <input type="checkbox" id="rightLayout" value="rightLayout" [(ngModel)]="rightLayout"
+        name="rightLayout"></span>
+    <br><br>
+    <span>Show Left Menu : <input type="checkbox" id="showLeftMenu" value="showLeftMenu" [(ngModel)]="showLeftMenu"
+        name="showLeftMenu"></span>
+    <span> Show Logo : <input type="checkbox" id="showLogo" value="showLogo" [(ngModel)]="showLogo"
+        name="showLogo"></span><br>
     <!-- Footer : <input type="checkbox" id="footerLayout" value="footerLayout" [(ngModel)]="footerLayout" name="footerLayout"><br> -->
     <br><br>
     <!-- <input type="submit" value="Apply" class="btn btn-primary buttonStyle"> -->
     <!-- <input type="submit" value="Publish" class="btn btn-primary buttonStyle"> -->
-    <button value="Apply" class="btn btn-primary buttonStyle" (click)="apply()">Apply</button>
-    <button value="Publish" class="btn btn-primary buttonStyle" (click)="publish()">Publish</button>
+  </div>
 
-  </form>
+  <button value="Apply" class="btn btn-primary buttonStyle" (click)="apply()">Apply</button>
+  <button value="Publish" class="btn btn-primary buttonStyle" (click)="publish()">Publish</button>
+
+</form>

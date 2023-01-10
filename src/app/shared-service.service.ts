@@ -11,6 +11,7 @@ export class SharedServiceService {
   public rightLayout: boolean = false;
   public leftLayout: boolean = false;
   public showLeftMenu : boolean = false;
+  public showLogo : boolean = true;
   constructor( private _http: HttpClient) { }
   
   getUserData(){
