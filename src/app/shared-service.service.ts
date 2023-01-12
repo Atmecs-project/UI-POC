@@ -16,10 +16,18 @@ export class SharedServiceService {
   public leftLayout: boolean = false;
   public showLeftMenu : boolean = false;
   public showLogo : boolean = true;
+  public themeID: any;
   constructor( private _http: HttpClient) { }
   
   url="http://localhost:5000/employees";
-  themeURL = "http://localhost:5000/themes"
+  themeURL = "http://localhost:5000/themes";
+  updateThemeUrl = "http://localhost:5000/themes/";
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+
   getUserData(){
     const getUserInfoUrl = 'https://miniproject-747d.restdb.io/rest/userinfo'
     return this._http.get( getUserInfoUrl, { headers: new HttpHeaders({ 'x-apikey': 'b784e808cd01df094e4c86461ad74dbee0b44', 'DbName': 'miniproject-747d', "Access-Control-Allow-Headers": "Content-Type, Authorization"})});
@@ -31,5 +39,9 @@ export class SharedServiceService {
   }
   getTheme(){
     return this._http.get(this.themeURL)
+  }
+  updateTheme(id : any, theme : any){
+    // return this._http.put(this.updateThemeUrl+id, JSON.stringify(theme));
+    return this._http.put(this.updateThemeUrl + id, theme);
   }
 }
