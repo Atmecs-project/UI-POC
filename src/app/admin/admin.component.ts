@@ -18,12 +18,29 @@ export class AdminComponent implements OnInit {
   constructor( public sharedService : SharedServiceService) { }
 
   ngOnInit(): void {
+    this.default();
+    this.getThemes();
+  }
+
+  themeInfo: any;
+  getThemes(){
+    this.sharedService.getTheme().subscribe((data:any) => {
+      this.themeInfo = data?.themes[0];
+      this.sharedService.layoutTheme = this.themeInfo?.main_theme;
+      this.sharedService.leftTheme = this.themeInfo?.left_theme;
+      this.sharedService.rightTheme = this.themeInfo?.right_theme;
+      this.sharedService.footerTheme =  this.themeInfo?.footer_theme;
+      this.sharedService.headerTheme = this.themeInfo?.header_theme;
+    });
+  }
+
+  default(){
     if(!localStorage.getItem('layouttheme')){
-      this.sharedService.layoutTheme = '#00000';
+      // this.sharedService.layoutTheme = '#00000';
       this.favcolor = this.sharedService.layoutTheme;
     }
     else{
-      this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
+      // this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
       this.favcolor = this.sharedService.layoutTheme;
     }
 
