@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class SharedServiceService {
   public showLeftMenu : boolean = false;
   public showLogo : boolean = true;
   public themeID: any;
+  public selectFont : any = 'Tahoma';
   constructor( private _http: HttpClient) { }
   
   url="http://localhost:5000/employees";
