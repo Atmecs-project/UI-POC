@@ -57,7 +57,7 @@ export class AdminComponent implements OnInit {
       "left_theme": "#112233",
       "right_theme": "#FF0000",
       "header_theme": "#000000",
-      "footer_theme": "#332288",
+      "footer_theme": "#00FF00",
     }
     this.sharedService.updateTheme(this.sharedService.themeID, this.themeObj).subscribe((data:any)=>{
       console.log("theme is updated");
