@@ -14,6 +14,7 @@ export class AdminComponent implements OnInit {
   leftLayout: boolean = false;
   showLeftMenu: boolean = false;
   showLogo : boolean = true;
+  myFont : any;
   constructor( public sharedService : SharedServiceService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,15 @@ export class AdminComponent implements OnInit {
     else{
       this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
       this.favcolor = this.sharedService.layoutTheme;
+    }
+
+    if(!localStorage.getItem('selectfont')) {
+      this.sharedService.selectFont = 'Arial';
+      this.myFont = this.sharedService.selectFont;
+    }
+    else{
+      this.sharedService.selectFont = localStorage.getItem('selectfont');
+      this.myFont = this.sharedService.selectFont;
     }
 
     // if(!localStorage.getItem('footerLayout')){
@@ -82,6 +92,8 @@ export class AdminComponent implements OnInit {
     localStorage.setItem('layouttheme', this.favcolor);
     this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
 
+    localStorage.setItem('selectfont', this.myFont);
+    this.sharedService.selectFont = localStorage.getItem('selectfont');
     // localStorage.setItem('footerLayout', this.footerLayout ? 'true':'false');
     // this.sharedService.footerLayout = localStorage.getItem('footerLayout') == 'true' ? true : false;
 
@@ -97,7 +109,7 @@ export class AdminComponent implements OnInit {
     localStorage.setItem('showLogo', this.showLogo ? 'true':'false');
     this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
 
-    window.location.reload();
+    // window.location.reload();
 
   }
   publish(){

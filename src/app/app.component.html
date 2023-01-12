@@ -19,10 +19,10 @@
     <app-footer></app-footer> -->
     <app-header (sideNavToggled)="sideNavStatus = $event;"></app-header>
   <main>    
-    <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}" [ngStyle]="{'background-color': sharedService.layoutTheme}" *ngIf="sharedService.leftLayout"></app-side-nav>    
+    <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}" [ngStyle]="{'background-color': sharedService.layoutTheme,'font-family': sharedService.selectFont}" *ngIf="sharedService.leftLayout"></app-side-nav>    
     <div class="display-area p-3" [ngClass]="{'display-area-shrink':sideNavStatus}">
       <router-outlet></router-outlet>
-      <app-right-nav [rsideNavStatus]="rsideNavStatus" [ngClass]="{'app-right-nav-open':rsideNavStatus}" [ngStyle]="{'background-color': sharedService.layoutTheme}" *ngIf="sharedService.rightLayout">      
+      <app-right-nav [rsideNavStatus]="rsideNavStatus" [ngClass]="{'app-right-nav-open':rsideNavStatus}" [ngStyle]="{'background-color': sharedService.layoutTheme,'font-family': sharedService.selectFont}" *ngIf="sharedService.rightLayout">      
       </app-right-nav>
     </div>
     <app-footer></app-footer>
