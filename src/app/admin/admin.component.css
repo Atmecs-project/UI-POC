@@ -3,3 +3,14 @@
     margin-right: 10px;
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }
+
+.container{
+    width: 100%;
+    float: left;
+}
+
+.borderStyle{
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+}

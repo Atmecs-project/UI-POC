@@ -15,11 +15,17 @@ export class AdminComponent implements OnInit {
   showLeftMenu: boolean = false;
   showLogo : boolean = true;
   myFont : any;
+  layoutInfo: any;
+  headercolor: any;
+  leftcolor: any;
+  rightcolor: any;
+  footercolor: any;
   constructor( public sharedService : SharedServiceService) { }
 
   ngOnInit(): void {
     this.default();
     this.getThemes();
+    this.getLayout();
   }
 
   apply() {
@@ -51,18 +57,28 @@ export class AdminComponent implements OnInit {
   }
 
   themeObj: any;
+  layoutObj: any;
   publish() {
     this.themeObj = {
-      "main_theme": "#FF0000",
-      "left_theme": "#112233",
-      "right_theme": "#FF0000",
-      "header_theme": "#000000",
-      "footer_theme": "#00FF00",
+      "main_theme": this.favcolor,
+      "left_theme": this.leftcolor,
+      "right_theme": this.rightcolor,
+      "header_theme": this.headercolor,
+      "footer_theme": this.footercolor,
     }
+    this.layoutObj = {
+        "left_layout": "true",
+        "right_layout": "false"
+    }
+
     this.sharedService.updateTheme(this.sharedService.themeID, this.themeObj).subscribe((data:any)=>{
       console.log("theme is updated");
       this.getThemes();
     });
+    this.sharedService.updateLayout(this.sharedService.layoutID, this.layoutObj).subscribe((data:any)=>{
+      console.log("layout updated");
+      this.getLayout();
+    })
 
   }
 
@@ -76,6 +92,10 @@ export class AdminComponent implements OnInit {
       this.sharedService.rightTheme = this.themeInfo?.right_theme;
       this.sharedService.footerTheme = this.themeInfo?.footer_theme;
       this.sharedService.headerTheme = this.themeInfo?.header_theme;
+      this.headercolor = this.themeInfo?.header_theme;
+      this.leftcolor = this.themeInfo?.left_theme;
+      this.rightcolor = this.themeInfo?.right_theme;
+      this.footercolor = this.themeInfo?.footer_theme;
     });
   }
 
@@ -143,5 +163,15 @@ export class AdminComponent implements OnInit {
       this.showLogo = this.sharedService.showLogo;
     }
 
+  }
+
+  getLayout(){
+    this.sharedService.getLayout().subscribe((data:any)=>{
+      console.log(data);
+      this.layoutInfo = data?.layouts[0];
+      this.sharedService.layoutID  = this.layoutInfo?._id
+      this.sharedService.leftLayout = this.layoutInfo?.left_layout;
+      this.sharedService.rightLayout = this.layoutInfo?.right_layout;
+    })   
   }
 }

@@ -19,11 +19,14 @@ export class SharedServiceService {
   public showLogo : boolean = true;
   public themeID: any;
   public selectFont : any = 'Tahoma';
+  public layoutID: any;
   constructor( private _http: HttpClient) { }
   
   url="http://localhost:5000/employees";
   themeURL = "http://localhost:5000/themes";
   updateThemeUrl = "http://localhost:5000/themes/";
+  layoutThemeURL = "http://localhost:5000/layouts";
+  updateLayoutUrl = "http://localhost:5000/layouts/"
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -45,5 +48,11 @@ export class SharedServiceService {
   updateTheme(id : any, theme : any){
     // return this._http.put(this.updateThemeUrl+id, JSON.stringify(theme));
     return this._http.put(this.updateThemeUrl + id, theme);
+  }
+  getLayout(){
+    return this._http.get(this.layoutThemeURL)
+  }
+  updateLayout(id : any, layout : any){
+    return this._http.put(this.updateLayoutUrl + id, layout);
   }
 }

@@ -8,10 +8,16 @@ import { SharedServiceService } from '../shared-service.service';
 })
 export class LandingpageComponent implements OnInit {
 
-  themeInfo: any
+  themeInfo: any;
+  layoutInfo: any;
   constructor( private sharedService: SharedServiceService ) { }
 
   ngOnInit(): void {
+    this.getTheme();
+    this.getLayout();
+  }
+
+  getTheme(){
     this.sharedService.getTheme().subscribe((data:any) => {
       this.themeInfo = data?.themes[0];
       // console.log(this.themeInfo);
@@ -21,6 +27,14 @@ export class LandingpageComponent implements OnInit {
       this.sharedService.footerTheme =  this.themeInfo.footer_theme;
       this.sharedService.headerTheme = this.themeInfo.header_theme;
     });
+  }
+  getLayout(){
+    this.sharedService.getLayout().subscribe((data:any)=>{
+      console.log(data);
+      this.layoutInfo = data?.layouts[0];
+      this.sharedService.leftLayout = this.layoutInfo?.left_layout;
+      this.sharedService.rightLayout = this.layoutInfo?.right_layout;
+    })
   }
 
 }
