@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-landingpage',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingpageComponent implements OnInit {
 
-  constructor() { }
+  themeInfo: any
+  constructor( private sharedService: SharedServiceService ) { }
 
   ngOnInit(): void {
+    this.sharedService.getTheme().subscribe((data:any) => {
+      this.themeInfo = data?.themes[0];
+      // console.log(this.themeInfo);
+      this.sharedService.layoutTheme = this.themeInfo.main_theme;
+      this.sharedService.leftTheme = this.themeInfo.left_theme;
+      this.sharedService.rightTheme = this.themeInfo.right_theme;
+      this.sharedService.footerTheme =  this.themeInfo.footer_theme;
+      this.sharedService.headerTheme = this.themeInfo.header_theme;
+    });
   }
 
 }

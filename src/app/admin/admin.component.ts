@@ -17,12 +17,60 @@ export class AdminComponent implements OnInit {
   constructor( public sharedService : SharedServiceService) { }
 
   ngOnInit(): void {
+    this.default();
+    this.getThemes();
+  }
+
+  apply(){
+    console.log(this.favcolor);
+    // console.log(this.footerLayout);
+    console.log(this.rightLayout);
+    console.log(this.leftLayout);
+
+    localStorage.setItem('layouttheme', this.favcolor);
+    this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
+
+    // localStorage.setItem('footerLayout', this.footerLayout ? 'true':'false');
+    // this.sharedService.footerLayout = localStorage.getItem('footerLayout') == 'true' ? true : false;
+
+    localStorage.setItem('leftLayout', this.leftLayout ? 'true':'false');
+    this.sharedService.leftLayout = localStorage.getItem('leftLayout') == 'true' ? true : false;
+
+    localStorage.setItem('rightLayout', this.rightLayout ? 'true':'false');
+    this.sharedService.rightLayout = localStorage.getItem('rightLayout') == 'true' ? true : false;
+
+    localStorage.setItem('showLeftMenu', this.showLeftMenu ? 'true':'false');
+    this.sharedService.showLeftMenu = localStorage.getItem('showLeftMenu') == 'true' ? true : false;
+
+    localStorage.setItem('showLogo', this.showLogo ? 'true':'false');
+    this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
+
+    window.location.reload();
+
+  }
+  publish(){
+
+  }
+
+  themeInfo: any;
+  getThemes(){
+    this.sharedService.getTheme().subscribe((data:any) => {
+      this.themeInfo = data?.themes[0];
+      this.sharedService.layoutTheme = this.themeInfo?.main_theme;
+      this.sharedService.leftTheme = this.themeInfo?.left_theme;
+      this.sharedService.rightTheme = this.themeInfo?.right_theme;
+      this.sharedService.footerTheme =  this.themeInfo?.footer_theme;
+      this.sharedService.headerTheme = this.themeInfo?.header_theme;
+    });
+  }
+
+  default(){
     if(!localStorage.getItem('layouttheme')){
-      this.sharedService.layoutTheme = '#00000';
+      // this.sharedService.layoutTheme = '#00000';
       this.favcolor = this.sharedService.layoutTheme;
     }
     else{
-      this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
+      // this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
       this.favcolor = this.sharedService.layoutTheme;
     }
 
@@ -70,38 +118,6 @@ export class AdminComponent implements OnInit {
       this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
       this.showLogo = this.sharedService.showLogo;
     }
-
-  }
-
-  apply(){
-    console.log(this.favcolor);
-    // console.log(this.footerLayout);
-    console.log(this.rightLayout);
-    console.log(this.leftLayout);
-
-    localStorage.setItem('layouttheme', this.favcolor);
-    this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
-
-    // localStorage.setItem('footerLayout', this.footerLayout ? 'true':'false');
-    // this.sharedService.footerLayout = localStorage.getItem('footerLayout') == 'true' ? true : false;
-
-    localStorage.setItem('leftLayout', this.leftLayout ? 'true':'false');
-    this.sharedService.leftLayout = localStorage.getItem('leftLayout') == 'true' ? true : false;
-
-    localStorage.setItem('rightLayout', this.rightLayout ? 'true':'false');
-    this.sharedService.rightLayout = localStorage.getItem('rightLayout') == 'true' ? true : false;
-
-    localStorage.setItem('showLeftMenu', this.showLeftMenu ? 'true':'false');
-    this.sharedService.showLeftMenu = localStorage.getItem('showLeftMenu') == 'true' ? true : false;
-
-    localStorage.setItem('showLogo', this.showLogo ? 'true':'false');
-    this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
-
-    window.location.reload();
-
-  }
-  publish(){
-
   }
 
 }
