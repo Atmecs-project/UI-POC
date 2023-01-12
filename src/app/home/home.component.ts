@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeDataService } from '../services/employee-data.service';
+import { SharedServiceService } from '../shared-service.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,7 +7,7 @@ import { EmployeeDataService } from '../services/employee-data.service';
 })
 export class HomeComponent implements OnInit {
   emplist: any =[];
-  constructor(private empData: EmployeeDataService) { }
+  constructor(private empData: SharedServiceService) { }
   ngOnInit(): void {
     this.empData.employees().subscribe((data) => {
       this.emplist=data;
