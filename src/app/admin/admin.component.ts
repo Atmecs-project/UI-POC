@@ -67,16 +67,18 @@ export class AdminComponent implements OnInit {
       "footer_theme": this.footercolor,
     }
     this.layoutObj = {
-        "left_layout": "true",
-        "right_layout": "false"
+        "left_layout": this.leftLayout,
+        "right_layout": this.rightLayout,
+        "show_logo": this.showLogo,
+        "show_leftmenu": this.showLeftMenu
     }
 
     this.sharedService.updateTheme(this.sharedService.themeID, this.themeObj).subscribe((data:any)=>{
-      console.log("theme is updated");
+      alert("Theme/Layout updated successfully")
       this.getThemes();
     });
     this.sharedService.updateLayout(this.sharedService.layoutID, this.layoutObj).subscribe((data:any)=>{
-      console.log("layout updated");
+      // alert("Theme/Layout updated successfully")
       this.getLayout();
     })
 
@@ -168,10 +170,23 @@ export class AdminComponent implements OnInit {
   getLayout(){
     this.sharedService.getLayout().subscribe((data:any)=>{
       console.log(data);
-      this.layoutInfo = data?.layouts[0];
+      this.layoutInfo = data?.louts[0];
       this.sharedService.layoutID  = this.layoutInfo?._id
       this.sharedService.leftLayout = this.layoutInfo?.left_layout;
       this.sharedService.rightLayout = this.layoutInfo?.right_layout;
     })   
+  }
+
+  defaultTheme(){
+    this.sharedService.leftTheme = "#000000";
+    this.sharedService.rightTheme = "#000000";
+    this.sharedService.headerTheme = "#000000";
+    this.sharedService.footerTheme = "#000000";
+    this.sharedService.layoutTheme = "#000000";
+    this.favcolor = "#000000";
+    this.headercolor = "#000000";
+    this.footercolor = "#000000";
+    this.leftcolor = "#000000";
+    this.rightcolor = "#000000";
   }
 }

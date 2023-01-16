@@ -31,9 +31,11 @@ export class LandingpageComponent implements OnInit {
   getLayout(){
     this.sharedService.getLayout().subscribe((data:any)=>{
       console.log(data);
-      this.layoutInfo = data?.layouts[0];
+      this.layoutInfo = data?.louts[0];
       this.sharedService.leftLayout = this.layoutInfo?.left_layout;
       this.sharedService.rightLayout = this.layoutInfo?.right_layout;
+      this.sharedService.showLogo = this.layoutInfo?.show_logo;
+      this.sharedService.showLeftMenu = this.layoutInfo?.show_leftmenu;
     })
   }
 

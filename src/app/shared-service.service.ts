@@ -13,8 +13,8 @@ export class SharedServiceService {
   public footerTheme: any = '#000000';
   public headerTheme: any = '#000000';
   public footerLayout: any;
-  public rightLayout: boolean = false;
-  public leftLayout: boolean = false;
+  public rightLayout: boolean = true;
+  public leftLayout: boolean = true;
   public showLeftMenu : boolean = false;
   public showLogo : boolean = true;
   public themeID: any;

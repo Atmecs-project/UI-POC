@@ -34,28 +34,28 @@ export class AppComponent {
     // }
 
     if(!localStorage.getItem('leftLayout')){
-      this.sharedService.leftLayout = false;
+      this.sharedService.leftLayout = true;
     }
     else{
       this.sharedService.leftLayout = localStorage.getItem('leftLayout') == 'true' ? true : false;
     }
 
     if(!localStorage.getItem('rightLayout')){
-      this.sharedService.rightLayout = false;
+      this.sharedService.rightLayout = true;
     }
     else{
       this.sharedService.rightLayout = localStorage.getItem('rightLayout') == 'true' ? true : false;
     }
 
     if(!localStorage.getItem('showLeftMenu')){
-      this.sharedService.showLeftMenu = false;
+      this.sharedService.showLeftMenu = true;
     }
     else{
       this.sharedService.showLeftMenu = localStorage.getItem('showLeftMenu') == 'true' ? true : false;
     }
 
     if(!localStorage.getItem('showLogo')){
-      this.sharedService.showLogo = false;
+      this.sharedService.showLogo = true;
     }
     else{
       this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
