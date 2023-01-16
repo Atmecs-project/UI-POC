@@ -174,6 +174,12 @@ export class AdminComponent implements OnInit {
       this.sharedService.layoutID  = this.layoutInfo?._id
       this.sharedService.leftLayout = this.layoutInfo?.left_layout;
       this.sharedService.rightLayout = this.layoutInfo?.right_layout;
+      this.sharedService.showLogo = this.layoutInfo?.show_logo;
+      this.sharedService.showLeftMenu = this.layoutInfo?.show_leftmenu;
+      this.showLogo = this.sharedService.showLogo;
+      this.showLeftMenu = this.sharedService.showLeftMenu;
+      this.leftLayout = this.sharedService.leftLayout;
+      this.rightLayout = this.sharedService.rightLayout;
     })   
   }
 

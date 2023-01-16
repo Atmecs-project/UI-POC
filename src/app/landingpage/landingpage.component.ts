@@ -10,11 +10,13 @@ export class LandingpageComponent implements OnInit {
 
   themeInfo: any;
   layoutInfo: any;
+  emplist: any = [];
   constructor( private sharedService: SharedServiceService ) { }
 
   ngOnInit(): void {
     this.getTheme();
     this.getLayout();
+    this.getEmployee();
   }
 
   getTheme(){
@@ -37,6 +39,13 @@ export class LandingpageComponent implements OnInit {
       this.sharedService.showLogo = this.layoutInfo?.show_logo;
       this.sharedService.showLeftMenu = this.layoutInfo?.show_leftmenu;
     })
+  }
+
+  getEmployee(){
+    this.sharedService.employees().subscribe((data) => {
+      this.emplist=data;
+      console.log(this.emplist);
+    });
   }
 
 }
