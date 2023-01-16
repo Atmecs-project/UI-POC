@@ -30,15 +30,21 @@ export class AdminComponent implements OnInit {
 
   apply() {
     console.log(this.favcolor);
-    // console.log(this.footerLayout);
-    console.log(this.rightLayout);
-    console.log(this.leftLayout);
 
     localStorage.setItem('layouttheme', this.favcolor);
     this.sharedService.layoutTheme = localStorage.getItem('layouttheme');
 
-    // localStorage.setItem('footerLayout', this.footerLayout ? 'true':'false');
-    // this.sharedService.footerLayout = localStorage.getItem('footerLayout') == 'true' ? true : false;
+    localStorage.setItem('leftTheme', this.leftcolor);
+    this.sharedService.leftTheme = localStorage.getItem('leftTheme');
+
+    localStorage.setItem('rightTheme', this.rightcolor);
+    this.sharedService.rightTheme = localStorage.getItem('rightTheme');
+
+    localStorage.setItem('footerTheme', this.footercolor);
+    this.sharedService.footerTheme = localStorage.getItem('footerTheme');
+
+    localStorage.setItem('headerTheme', this.headercolor);
+    this.sharedService.headerTheme = localStorage.getItem('headerTheme');
 
     localStorage.setItem('leftLayout', this.leftLayout ? 'true' : 'false');
     this.sharedService.leftLayout = localStorage.getItem('leftLayout') == 'true' ? true : false;
@@ -52,7 +58,10 @@ export class AdminComponent implements OnInit {
     localStorage.setItem('showLogo', this.showLogo ? 'true' : 'false');
     this.sharedService.showLogo = localStorage.getItem('showLogo') == 'true' ? true : false;
 
-    window.location.reload();
+    localStorage.setItem('selectfont', this.myFont);
+    this.sharedService.selectFont = localStorage.getItem('selectfont');
+
+    // window.location.reload();
 
   }
 
