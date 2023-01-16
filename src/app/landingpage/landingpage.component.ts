@@ -11,7 +11,7 @@ export class LandingpageComponent implements OnInit {
   themeInfo: any;
   layoutInfo: any;
   emplist: any = [];
-  constructor( private sharedService: SharedServiceService ) { }
+  constructor( public sharedService: SharedServiceService ) { }
 
   ngOnInit(): void {
     this.getTheme();
