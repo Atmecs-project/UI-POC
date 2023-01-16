@@ -38,6 +38,7 @@ export class LandingpageComponent implements OnInit {
       this.sharedService.rightLayout = this.layoutInfo?.right_layout;
       this.sharedService.showLogo = this.layoutInfo?.show_logo;
       this.sharedService.showLeftMenu = this.layoutInfo?.show_leftmenu;
+      this.sharedService.selectFont = this.layoutInfo?.font_family;
     })
   }
 

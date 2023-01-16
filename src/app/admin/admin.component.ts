@@ -70,7 +70,8 @@ export class AdminComponent implements OnInit {
         "left_layout": this.leftLayout,
         "right_layout": this.rightLayout,
         "show_logo": this.showLogo,
-        "show_leftmenu": this.showLeftMenu
+        "show_leftmenu": this.showLeftMenu,
+        "font_family": this.myFont
     }
 
     this.sharedService.updateTheme(this.sharedService.themeID, this.themeObj).subscribe((data:any)=>{
@@ -176,10 +177,12 @@ export class AdminComponent implements OnInit {
       this.sharedService.rightLayout = this.layoutInfo?.right_layout;
       this.sharedService.showLogo = this.layoutInfo?.show_logo;
       this.sharedService.showLeftMenu = this.layoutInfo?.show_leftmenu;
+      this.sharedService.selectFont = this.layoutInfo?.font_family;
       this.showLogo = this.sharedService.showLogo;
       this.showLeftMenu = this.sharedService.showLeftMenu;
       this.leftLayout = this.sharedService.leftLayout;
       this.rightLayout = this.sharedService.rightLayout;
+      this.myFont = this.sharedService.selectFont;
     })   
   }
 
