@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     } else {
       console.log('normal user');
      // this.sharedService.isLoggedIn = true;
-      this.router.navigate(['/landing']);
+      this.router.navigate(['/home']);
     }
   }
 

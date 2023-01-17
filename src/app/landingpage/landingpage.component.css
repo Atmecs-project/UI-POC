@@ -8,3 +8,23 @@
     bottom: 80%;
     border: 1px solid black;
   }
+  h4{
+    font-weight: bold;
+    color: rgb(97, 25, 25);
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 2%;
+  }
+ 
+  th
+  {
+
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    color: whitesmoke;
+  }
+  td
+  {
+    color: wheat;
+  }

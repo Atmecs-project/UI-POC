@@ -7,12 +7,9 @@ import { SharedServiceService } from '../shared-service.service';
 })
 export class HomeComponent implements OnInit {
   emplist: any =[];
-  constructor(private empData: SharedServiceService) { }
+  constructor(public sharedService: SharedServiceService) { }
   ngOnInit(): void {
-    this.empData.employees().subscribe((data) => {
-      this.emplist=data;
-      console.log(this.emplist);
-    });
+    
   }
   addNewEmployee()
   {

@@ -8,6 +8,7 @@ app-header {
    top: 0px;
    height: 4rem;
    z-index: 2;
+   overflow: hidden;
 }
 
 main{
@@ -21,7 +22,7 @@ app-side-nav {
    position: absolute;
    left: 0rem;
    width: 60px;
-   height: calc(100vh - 4rem);
+   height: calc(105vh - 4rem);
    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
    /* background-color: rgb(34,34,34,1); */
    border-top: 1px solid white;
@@ -50,14 +51,13 @@ app-right-nav {
    position: absolute;
    top:0rem;    
    left: 80%;   
-   height: calc(100vh - 4rem);
+   height: calc(105vh - 4rem);
    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
    /* background-color: rgb(34,34,34,1); */
    border-top: 1px solid white;
    overflow: hidden;
    white-space: nowrap;
    transition: width 250ms ease-in;
-   z-index: 100;
    animation: 3s slide-left;
 }
 @keyframes slide-left {
