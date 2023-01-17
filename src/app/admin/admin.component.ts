@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   leftcolor: any;
   rightcolor: any;
   footercolor: any;
+  fontSize:any;
   constructor( public sharedService : SharedServiceService) { }
 
   ngOnInit(): void {
@@ -61,6 +62,9 @@ export class AdminComponent implements OnInit {
     localStorage.setItem('selectfont', this.myFont);
     this.sharedService.selectFont = localStorage.getItem('selectfont');
 
+    localStorage.setItem('fontSize', this.fontSize);
+    this.sharedService.fontSize = localStorage.getItem('fontSize');
+
     // window.location.reload();
 
   }
@@ -80,7 +84,8 @@ export class AdminComponent implements OnInit {
         "right_layout": this.rightLayout,
         "show_logo": this.showLogo,
         "show_leftmenu": this.showLeftMenu,
-        "font_family": this.myFont
+        "font_family": this.myFont,
+        "font_size": this.fontSize
     }
 
     this.sharedService.updateTheme(this.sharedService.themeID, this.themeObj).subscribe((data:any)=>{
@@ -187,11 +192,13 @@ export class AdminComponent implements OnInit {
       this.sharedService.showLogo = this.layoutInfo?.show_logo;
       this.sharedService.showLeftMenu = this.layoutInfo?.show_leftmenu;
       this.sharedService.selectFont = this.layoutInfo?.font_family;
+      this.sharedService.fontSize = this.layoutInfo?.font_size;
       this.showLogo = this.sharedService.showLogo;
       this.showLeftMenu = this.sharedService.showLeftMenu;
       this.leftLayout = this.sharedService.leftLayout;
       this.rightLayout = this.sharedService.rightLayout;
       this.myFont = this.sharedService.selectFont;
+      this.fontSize = this.sharedService.fontSize
     })   
   }
 

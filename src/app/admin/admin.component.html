@@ -1,4 +1,4 @@
-<div [ngStyle]="{'font-family': sharedService.selectFont}">
+<div [ngStyle]="{'font-family': sharedService.selectFont,'font-size': sharedService.fontSize  + 'px' }">
 <form>
   <div class="container p-3 my-3 width borderStyle">
     <label for="favcolor">Select your favorite</label><br><br>
@@ -35,6 +35,8 @@
       <option style="font-family: Calibri;">Calibri</option>
       <option style="font-family: Noto;">Noto</option>
     </select>
+    <span> Font Size : <input type="number" id="fontSize" value="fontSize" [(ngModel)]="fontSize"
+      name="fontSize"></span>
     <!-- Footer : <input type="checkbox" id="footerLayout" value="footerLayout" [(ngModel)]="footerLayout" name="footerLayout"><br> -->
     <br><br>
     <!-- <input type="submit" value="Apply" class="btn btn-primary buttonStyle"> -->

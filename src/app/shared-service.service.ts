@@ -20,6 +20,7 @@ export class SharedServiceService {
   public themeID: any;
   public selectFont : any = 'Tahoma';
   public layoutID: any;
+  public fontSize:any;
   constructor( private _http: HttpClient) { }
   
   url="http://localhost:5000/employees";
