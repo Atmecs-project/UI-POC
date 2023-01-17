@@ -1,4 +1,4 @@
-<div [ngStyle]="{'font-family': sharedService.selectFont}">
+<div [ngStyle]="{'font-family': sharedService.selectFont,'font-size': sharedService.fontSize  + 'px'}">
   <form>
     <div class="container p-3 my-3 width borderStyle">
       <div class="row">
@@ -63,7 +63,9 @@
     </div>
     <div class="container p-3 my-3 width borderStyle">
       <div class="row">
-        <label for="favlayout">Select your layout:</label><br><br>
+        <div class="col">
+          <label for="favlayout">Select your layout:</label><br><br>
+        </div>
       </div>
       <div class="row">
         <div class="col">
@@ -80,28 +82,59 @@
         </div>
         <div class="col"></div>
       </div>
-      <span> Show Logo : <input type="checkbox" id="showLogo" value="showLogo" [(ngModel)]="showLogo"
-          name="showLogo"></span><br><br>
+      <div class="row">
+        <div class="col">
+          <span> Show Logo : <input type="checkbox" id="showLogo" value="showLogo" [(ngModel)]="showLogo"
+              name="showLogo"></span><br><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="fontFamilySelect" class="form-label">Font Family : </label>
+       
+        
+          <select id="selectfont" [(ngModel)]="myFont" name="myFont">
+            <option disabled style="font-weight: bold; background-color: #EEEEEE">Serif Fonts</option>
+            <option style="font-family: Georgia,serif">Georgia</option>
+            <option style="font-family: Arial, Helvetica, sans-serif;">Arial</option>
+            <option
+              style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+              Monospace</option>
+            <option style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cursive</option>
+            <option style="font-family: fantasy;">Fantasy</option>
+            <option style="font-family: Helvetica;">Helvetica</option>
+            <option style="font-family: Verdana;">Verdana</option>
+            <option style="font-family: Calibri;">Calibri</option>
+            <option style="font-family: Noto;">Noto</option>
 
-      <label for="fontFamilySelect" class="form-label">Font Family : </label>
-      <select id="selectfont" [(ngModel)]="myFont" name="myFont">
-        <option disabled style="font-weight: bold; background-color: #EEEEEE">Serif Fonts</option>
-        <option style="font-family: Georgia,serif">Georgia</option>
-        <option style="font-family: Arial, Helvetica, sans-serif;">Arial</option>
-        <option
-          style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-          Monospace</option>
-        <option style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cursive</option>
-        <option style="font-family: fantasy;">Fantasy</option>
-        <option style="font-family: Helvetica;">Helvetica</option>
-        <option style="font-family: Verdana;">Verdana</option>
-        <option style="font-family: Calibri;">Calibri</option>
-        <option style="font-family: Noto;">Noto</option>
-      </select>
-      <!-- Footer : <input type="checkbox" id="footerLayout" value="footerLayout" [(ngModel)]="footerLayout" name="footerLayout"><br> -->
-      <br><br>
-      <!-- <input type="submit" value="Apply" class="btn btn-primary buttonStyle"> -->
-      <!-- <input type="submit" value="Publish" class="btn btn-primary buttonStyle"> -->
+            <option style="font-family: Cambria;">Cambria</option>
+            <option style="font-family: Candara;">Candara</option>
+            <option style="font-family: Cascadia Code;">Cascadia Code</option>
+            <option style="font-family: Ebrima;">Ebrima</option>
+            <option style="font-family: Gabriola;">Gabriola</option>
+            <option style="font-family: Georgia;">Georgia</option>
+            <option style="font-family: Javanese Text;">Javanese Text</option>
+            <option style="font-family: Leelawadee UI;">Leelawadee UI</option>
+            <option style="font-family: Segoe UI;">Segoe UI</option>
+            <option style="font-family: Times New Roman;">Times New Roman</option>
+            <option style="font-family: Trebuchet MS;">Trebuchet MS</option>
+            <option style="font-family: Webdings;">Webdings</option>
+            <option style="font-family: Symbol;">Symbol</option>
+            <option style="font-family: Yu Gothic;">Yu Gothic</option>
+          </select>
+        </div>
+        <div class="col">
+          <span> Font Size : <input type="number" id="fontSize" value="fontSize" [(ngModel)]="fontSize"
+              name="fontSize"></span>
+          <!-- Footer : <input type="checkbox" id="footerLayout" value="footerLayout" [(ngModel)]="footerLayout" name="footerLayout"><br> -->
+
+          <!-- <input type="submit" value="Apply" class="btn btn-primary buttonStyle"> -->
+          <!-- <input type="submit" value="Publish" class="btn btn-primary buttonStyle"> -->
+        </div>
+      </div>
+      <div class="col"></div>
+      <div class="col"></div>
+      
     </div>
     <div style="float: left;">
       <button value="Apply" class="btn btn-primary buttonStyle" (click)="apply()">Apply</button>
