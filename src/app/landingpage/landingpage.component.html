@@ -4,7 +4,7 @@
         <h4>Employee Data</h4>
     </div>
     <div>
-        <table class="table table-bordered table-responsive" width="100%"
+        <table class="table table-bordered table-responsive textColor" width="100%"
             [ngStyle]="{'background-color': sharedService.headerTheme}">
             <thead>
                 <tr>
@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let emp of emplist.employees">
+                <tr *ngFor="let emp of emplist.employees" class="textColor">
                     <td>{{ emp.userid}}</td>
                     <td>{{ emp.name}}</td>
                     <td>{{ emp.designation}}</td>

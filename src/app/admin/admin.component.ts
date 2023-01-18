@@ -113,6 +113,7 @@ export class AdminComponent implements OnInit {
       this.leftcolor = this.themeInfo?.left_theme;
       this.rightcolor = this.themeInfo?.right_theme;
       this.footercolor = this.themeInfo?.footer_theme;
+      this.favcolor = this.themeInfo?.main_theme;
     });
   }
 
@@ -213,5 +214,13 @@ export class AdminComponent implements OnInit {
     this.footercolor = "#000000";
     this.leftcolor = "#000000";
     this.rightcolor = "#000000";
+  }
+
+  valuechange(event : any ){
+    console.log(event);
+    this.headercolor = event;
+    this.footercolor = event;
+    this.leftcolor = event;
+    this.rightcolor = event;
   }
 }
